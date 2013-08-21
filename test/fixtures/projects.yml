@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_title: MyString
+  project_description: MyText
+  project_budget: 9.99
+
+two:
+  project_title: MyString
+  project_description: MyText
+  project_budget: 9.99
