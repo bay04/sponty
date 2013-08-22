@@ -1,0 +1,16 @@
+<h1>All Projects on Spont.</h1>
+----------------------------------------------------------<br>
+----------------------------------------------------------
+
+<% for p in @projects %>
+
+	<h2>Project Name: <%= link_to p.project_title, project_path(p) %></h2>
+	<p>Description: <%= p.project_description %></p>
+	<p>Budget: <%= p.project_budget %></p>
+
+<hr>
+<% end %>
+
+
+
+<%= link_to "New project", new_project_path %>
