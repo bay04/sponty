@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Spont</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id='header'>
+    <% if signed_in? -%>
+    	<p>Signed in as: <%= current_user.email %></p>
+      <%= link_to t('.sign_out'), sign_out_path, :method => :delete %>
+    <% else -%>
+      <%= link_to t('.sign_in'), sign_in_path %>
+    <% end -%>
+  </div>
 
-
-<% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= link_to 'Sign out', sign_out_path, :method => :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
+  <div id='flash'>
+    <% flash.each do |key, value| -%>
+      <div id='flash_<%= key %>'><%=h value %></div>
     <% end %>
+  </div>
 
-    <div id="flash">
-      <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
-      <% end %>
-    </div>
-<%= yield %>
-
+  <%= yield %>
 </body>
 </html>

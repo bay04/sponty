@@ -12,6 +12,9 @@
 
 
 <hr>
-<%= link_to "Edit project", edit_project_path(@project) %>
-<hr>
+<% if @project.created_by == current_user.email  %>
+	<%= link_to "Edit project", edit_project_path(@project) %>
+<% else %>
+	
+<% end %>
 <%= link_to "All Projects", projects_path %>
