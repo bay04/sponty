@@ -7,7 +7,9 @@
 	<h2>Project Name: <%= link_to p.project_title, project_path(p) %></h2>
 	<p>Description: <%= p.project_description %></p>
 	<p>Budget: <%= p.project_budget %></p>
-
+	<p>Created by: <%= p.created_by %></p>
+	
+	<%= link_to "edit", edit_project_path(p) %>
 <hr>
 <% end %>
 

@@ -4,6 +4,17 @@
 	<%= f.input :project_title %>
 	<%= f.input :project_description %>
 	<%= f.input :project_budget %>
+
+
+<% if signed_in? %>
+		<% @project.created_by = current_user.email %>
+<% else %>
+		<%= flash[:notice] = "You need to be signed in with a customer account to create a project" %>
+		<%= link_to "Signin", sign_in_path %>
+<% end %>
+
+    <%= f.input :created_by %>
+
 	<%= f.button :submit %>
 	
 	
